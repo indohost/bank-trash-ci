@@ -1,0 +1,39 @@
+ERROR - 2022-03-25 09:49:49 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+ERROR - 2022-03-25 09:51:02 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+ERROR - 2022-03-25 09:51:28 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+ERROR - 2022-03-25 09:53:03 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+ERROR - 2022-03-25 09:53:03 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+ERROR - 2022-03-25 09:54:54 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+ERROR - 2022-03-25 09:54:55 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+ERROR - 2022-03-25 09:55:14 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+ERROR - 2022-03-25 09:55:21 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+ERROR - 2022-03-25 09:55:26 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+ERROR - 2022-03-25 09:56:20 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+ERROR - 2022-03-25 09:58:14 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+ERROR - 2022-03-25 09:59:57 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+ERROR - 2022-03-25 10:00:12 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+ERROR - 2022-03-25 10:01:32 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+ERROR - 2022-03-25 10:02:25 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+ERROR - 2022-03-25 10:05:30 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+ERROR - 2022-03-25 10:05:43 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+ERROR - 2022-03-25 10:05:50 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+ERROR - 2022-03-25 10:06:46 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+ERROR - 2022-03-25 10:07:53 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+ERROR - 2022-03-25 10:09:33 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+ERROR - 2022-03-25 10:11:24 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+ERROR - 2022-03-25 10:12:13 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+ERROR - 2022-03-25 10:12:23 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+ERROR - 2022-03-25 10:32:06 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'current_timestamp,
+	created_date datetime default current_timestamp,
+	updated_da' at line 9
+CRITICAL - 2022-03-25 10:48:06 --> Class 'App\Validation\UserModel' not found
+#0 D:\xampp\htdocs\CI\bank-trash\system\Validation\Validation.php(292): App\Validation\Userrules->validateUser('12345678', 'email,password', Array, NULL)
+#1 D:\xampp\htdocs\CI\bank-trash\system\Validation\Validation.php(157): CodeIgniter\Validation\Validation->processRules('password', 'password', '12345678', Array, Array)
+#2 D:\xampp\htdocs\CI\bank-trash\system\Controller.php(160): CodeIgniter\Validation\Validation->run()
+#3 D:\xampp\htdocs\CI\bank-trash\app\Controllers\UserController.php(27): CodeIgniter\Controller->validate(Array, Array)
+#4 D:\xampp\htdocs\CI\bank-trash\system\CodeIgniter.php(832): App\Controllers\UserController->login()
+#5 D:\xampp\htdocs\CI\bank-trash\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#6 D:\xampp\htdocs\CI\bank-trash\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 D:\xampp\htdocs\CI\bank-trash\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 D:\xampp\htdocs\CI\bank-trash\system\Commands\Server\rewrite.php(43): require_once('D:\\xampp\\htdocs...')
+#9 {main}
