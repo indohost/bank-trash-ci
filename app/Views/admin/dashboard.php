@@ -1,19 +1,36 @@
-<?= $this->extend("layouts/app") ?>
+<?= $this->extend("layouts/templates/index") ?>
 
-<?= $this->section("body") ?>
-
-<div class="container" style="margin-top:20px;">
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading">Admin Dashboard</div>
-                <div class="panel-body">
-                    <h1>Hello, <?= session()->get('username') ?></h1>
-                    <h3><a href="<?= site_url('logout') ?>">Logout</a></h3>
-                </div>
-            </div>
-        </div>
+<?= $this->section("sidebar") ?>
+<!-- Sidebar - Brand -->
+<a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+    <div class="sidebar-brand-icon rotate-n-15">
+        <i class="fas fa-laugh-wink"></i>
     </div>
-</div>
+    <div class="sidebar-brand-text mx-3">Basam</div>
+</a>
 
+<!-- Divider -->
+<hr class="sidebar-divider my-0">
+
+<!-- Nav Item - Dashboard -->
+<li class="nav-item">
+    <a class="nav-link" href="#">
+        <i class="fas fa-fw fa-tachometer-alt"></i>
+        <span>Dashboard</span></a>
+</li>
+
+<!-- Nav Item - Transaction -->
+<li class="nav-item">
+    <a class="nav-link" href="#">
+        <i class="fas fa-fw fa-shopping-bag"></i>
+        <span>Transaction</span></a>
+</li>
+
+<!-- Divider -->
+<hr class="sidebar-divider d-none d-md-block">
+
+<!-- Sidebar Toggler (Sidebar) -->
+<div class="text-center d-none d-md-inline">
+    <button class="rounded-circle border-0" id="sidebarToggle"></button>
+</div>
 <?= $this->endSection() ?>

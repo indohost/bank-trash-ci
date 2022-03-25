@@ -44,6 +44,9 @@ class UserController extends BaseController
                 } elseif ($user['role'] == "admin") {
 
                     return redirect()->to(base_url('admin'));
+                } elseif ($user['role'] == "user") {
+
+                    return redirect()->to(base_url('user'));
                 }
             }
         }

@@ -34,14 +34,22 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 
 $routes->match(['get', 'post'], 'login', 'UserController::login', ["filter" => "noauth"]);
+
 // Admin routes
 $routes->group("admin", ["filter" => "auth"], function ($routes) {
     $routes->get("/", "AdminController::index");
 });
-// Editor routes
+
+// Super Admin routes
 $routes->group("super_admin", ["filter" => "auth"], function ($routes) {
     $routes->get("/", "SuperAdminController::index");
 });
+
+// Admin routes
+$routes->group("user", ["filter" => "auth"], function ($routes) {
+    $routes->get("/", "ConsumerController::index");
+});
+
 $routes->get('logout', 'UserController::logout');
 
 /*
