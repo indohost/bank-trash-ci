@@ -43,6 +43,8 @@ $routes->group("admin", ["filter" => "auth"], function ($routes) {
 // Super Admin routes
 $routes->group("super_admin", ["filter" => "auth"], function ($routes) {
     $routes->get("/", "SuperAdminController::index");
+
+    $routes->get("users", "SuperAdmin/UserController::index");
 });
 
 // Admin routes

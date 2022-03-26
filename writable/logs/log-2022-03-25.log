@@ -37,3 +37,25 @@ CRITICAL - 2022-03-25 10:48:06 --> Class 'App\Validation\UserModel' not found
 #7 D:\xampp\htdocs\CI\bank-trash\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #8 D:\xampp\htdocs\CI\bank-trash\system\Commands\Server\rewrite.php(43): require_once('D:\\xampp\\htdocs...')
 #9 {main}
+CRITICAL - 2022-03-25 22:19:35 --> Invalid file: layouts/super_admin/dashboard.php
+#0 D:\xampp\htdocs\CI\bank-trash\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('layouts/super_a...')
+#1 D:\xampp\htdocs\CI\bank-trash\system\View\View.php(226): CodeIgniter\View\View->render('layouts/super_a...', Array, true)
+#2 D:\xampp\htdocs\CI\bank-trash\system\Common.php(1089): CodeIgniter\View\View->render('super_admin/use...', Array, true)
+#3 D:\xampp\htdocs\CI\bank-trash\app\Controllers\SuperAdmin\UserController.php(11): view('super_admin/use...')
+#4 D:\xampp\htdocs\CI\bank-trash\system\CodeIgniter.php(832): App\Controllers\SuperAdmin\UserController->index()
+#5 D:\xampp\htdocs\CI\bank-trash\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdmin\UserController))
+#6 D:\xampp\htdocs\CI\bank-trash\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 D:\xampp\htdocs\CI\bank-trash\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 D:\xampp\htdocs\CI\bank-trash\system\Commands\Server\rewrite.php(43): require_once('D:\\xampp\\htdocs...')
+#9 {main}
+CRITICAL - 2022-03-25 22:19:50 --> Invalid file: layouts/super_admin/dashboard.php
+#0 D:\xampp\htdocs\CI\bank-trash\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('layouts/super_a...')
+#1 D:\xampp\htdocs\CI\bank-trash\system\View\View.php(226): CodeIgniter\View\View->render('layouts/super_a...', Array, true)
+#2 D:\xampp\htdocs\CI\bank-trash\system\Common.php(1089): CodeIgniter\View\View->render('super_admin/use...', Array, true)
+#3 D:\xampp\htdocs\CI\bank-trash\app\Controllers\SuperAdmin\UserController.php(11): view('super_admin/use...')
+#4 D:\xampp\htdocs\CI\bank-trash\system\CodeIgniter.php(832): App\Controllers\SuperAdmin\UserController->index()
+#5 D:\xampp\htdocs\CI\bank-trash\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdmin\UserController))
+#6 D:\xampp\htdocs\CI\bank-trash\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 D:\xampp\htdocs\CI\bank-trash\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 D:\xampp\htdocs\CI\bank-trash\system\Commands\Server\rewrite.php(43): require_once('D:\\xampp\\htdocs...')
+#9 {main}
