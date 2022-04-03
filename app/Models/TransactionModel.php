@@ -4,10 +4,10 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class UserModel extends Model
+class TransactionModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'users';
+    protected $table            = 'transactions';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
@@ -15,12 +15,11 @@ class UserModel extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        "email",
-        "username",
-        "password",
-        "telephone",
-        "address",
-        "role",
+        "code_transaction",
+        "photo",
+        "payment",
+        "consumer_id",
+        "operator_id",
     ];
 
     // Dates
@@ -47,18 +46,37 @@ class UserModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    public function getUser()
+    public function getTransaction()
     {
         return $this->findAll();
     }
 
-    public function getCountUser()
+    public function getCodeTrasaction()
     {
-        return $this->where('role', 'user')->countAllResults();
+        $q = $this->select('MAX(code_transaction) as `kode`')->first();
+        $kode      = (int) substr($q['kode'], 5, 5);
+        $kode++;
+
+        $kd_first  = "TR";
+        $codeTransaction = $kd_first . sprintf("%05s", $kode);
+
+        return $codeTransaction;
     }
 
-    public function getCountAdmin()
+    public function getUser($userId)
     {
-        return $this->where('role', 'admin')->countAllResults();
+        $users = new UserModel();
+        return $users->where('id', $userId)->first()['username'];
+    }
+
+    public function getItemTransaction($codeTransaction)
+    {
+        $itemTrasactions = new ItemTransactionModel();
+        return $itemTrasactions->where('code_transaction', $codeTransaction)->findAll();
+    }
+
+    public function getCountTransaction()
+    {
+        return $this->countAllResults();
     }
 }

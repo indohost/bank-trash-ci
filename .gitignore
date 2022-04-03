@@ -28,3 +28,5 @@ writable/**/*.db
 writable/**/*.sqlite
 
 php_errors.log
+
+public/uploads/images/*

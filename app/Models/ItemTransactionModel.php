@@ -4,10 +4,10 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class UserModel extends Model
+class ItemTransactionModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'users';
+    protected $table            = 'itemtransactions';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
@@ -15,12 +15,14 @@ class UserModel extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        "email",
-        "username",
-        "password",
-        "telephone",
-        "address",
-        "role",
+        "price",
+        "unit",
+        "qty",
+        "total",
+        "type_trash",
+        "status_item_transaction",
+        "operator_id",
+        "code_transaction",
     ];
 
     // Dates
@@ -47,18 +49,22 @@ class UserModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    public function getUser()
+    public function getItemTransaction($operatorId = false)
     {
-        return $this->findAll();
+        if ($operatorId == false) {
+            return $this->findAll();
+        }
+
+        return $this->where([
+            'operator_id' => $operatorId,
+            'status_item_transaction' => 0,
+        ])->findAll();
     }
 
-    public function getCountUser()
+    public function getTrasaction()
     {
-        return $this->where('role', 'user')->countAllResults();
-    }
-
-    public function getCountAdmin()
-    {
-        return $this->where('role', 'admin')->countAllResults();
+        return $this->where([
+            'status_item_transaction' => 1,
+        ])->findAll();
     }
 }

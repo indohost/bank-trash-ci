@@ -2,7 +2,7 @@
 
 <?= $this->section("sidebar") ?>
 <!-- Sidebar - Brand -->
-<a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+<a class="sidebar-brand d-flex align-items-center justify-content-center" href="/user">
     <div class="sidebar-brand-icon rotate-n-15">
         <i class="fas fa-balance-scale"></i>
     </div>
@@ -14,28 +14,14 @@
 
 <!-- Nav Item - Dashboard -->
 <li class="nav-item">
-    <a class="nav-link" href="/super_admin">
+    <a class="nav-link" href="/user">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Dashboard</span></a>
 </li>
 
-<!-- Nav Item - Users -->
-<li class="nav-item">
-    <a class="nav-link" href="/super_admin/users">
-        <i class="fas fa-fw fa-users"></i>
-        <span>Users</span></a>
-</li>
-
-<!-- Nav Item - Transaction -->
-<li class="nav-item">
-    <a class="nav-link" href="/super_admin/transactions">
-        <i class="fas fa-fw fa-shopping-bag"></i>
-        <span>Transaction</span></a>
-</li>
-
 <!-- Nav Item - Report -->
 <li class="nav-item">
-    <a class="nav-link" href="/super_admin/reports">
+    <a class="nav-link" href="/user/reports">
         <i class="fas fa-fw fa-file"></i>
         <span>Report</span></a>
 </li>
