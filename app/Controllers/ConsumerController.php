@@ -29,6 +29,8 @@ class ConsumerController extends BaseController
     {
         $transactionCount = $this->transactionModel->where('consumer_id', session()->get('id'))->getCountTransaction();
         $itemTransactionCount = $this->transactionModel->where('consumer_id', session()->get('id'))->getTransaction();
+        $paymentBalanceCount = $this->transactionModel->where('consumer_id', session()->get('id'))->getCountPayment('balance');
+        $paymentCashCount = $this->transactionModel->where('consumer_id', session()->get('id'))->getCountPayment('cash');
 
         $incomeTransaction = 0;
         foreach ($itemTransactionCount as $d) {
@@ -55,6 +57,8 @@ class ConsumerController extends BaseController
             'incomeTransaction' => $incomeTransaction,
             'transactionCount' => $transactionCount,
             'type' => $type,
+            'paymentBalanceCount' => $paymentBalanceCount,
+            'paymentCashCount' => $paymentCashCount,
         ];
 
         return view("user/dashboard", $data);

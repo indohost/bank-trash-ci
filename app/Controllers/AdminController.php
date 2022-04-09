@@ -31,6 +31,8 @@ class AdminController extends BaseController
         $adminCount = $this->userModel->getCountAdmin();
         $transactionCount = $this->transactionModel->getCountTransaction();
         $totalTransaction = $this->itemTransactionModel->getTrasaction();
+        $paymentBalanceCount = $this->transactionModel->getCountPayment('balance');
+        $paymentCashCount = $this->transactionModel->getCountPayment('cash');
 
         $incomeTransaction = 0;
         foreach ($totalTransaction as $d) {
@@ -43,6 +45,8 @@ class AdminController extends BaseController
             'adminCount' => $adminCount,
             'incomeTransaction' => $incomeTransaction,
             'transactionCount' => $transactionCount,
+            'paymentBalanceCount' => $paymentBalanceCount,
+            'paymentCashCount' => $paymentCashCount,
         ];
 
         return view("admin/dashboard", $data);

@@ -61,4 +61,9 @@ class UserModel extends Model
     {
         return $this->where('role', 'admin')->countAllResults();
     }
+
+    public function getCountSuperAdmin()
+    {
+        return $this->where('role', 'super_admin')->countAllResults();
+    }
 }

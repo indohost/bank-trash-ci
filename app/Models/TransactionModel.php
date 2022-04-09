@@ -79,4 +79,9 @@ class TransactionModel extends Model
     {
         return $this->countAllResults();
     }
+
+    public function getCountPayment($payment)
+    {
+        return $this->where('payment', $payment)->countAllResults();
+    }
 }

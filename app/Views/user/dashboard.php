@@ -62,4 +62,40 @@ Dashboard - Bank Sampah
     </div>
 </div>
 
+<div class="row mt-2">
+    <div class="col-6">
+        <div class="card border-left-danger shadow h-100 py-2">
+            <div class="card-body">
+            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Detail Income</div>
+                <div id="chart"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?= $this->endSection() ?>
+<?= $this->section("js") ?>
+<script>
+    const options = {
+        series: [
+            <?php echo $paymentBalanceCount; ?>,
+            <?php echo $paymentCashCount; ?>
+        ],
+        chart: {
+            type: 'donut',
+        },
+        labels: ['Balance', 'Cash'],
+        responsive: [{
+            breakpoint: 480,
+            options: {
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }]
+    };
+
+    const chart = new ApexCharts(document.querySelector("#chart"), options);
+    chart.render();
+</script>
 <?= $this->endSection() ?>

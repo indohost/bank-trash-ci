@@ -140,6 +140,9 @@
     <!-- Page level custom scripts -->
     <script src="<?= base_url('assets/js/demo/datatables-demo.js') ?>"></script>
 
+    <!-- Apexchart scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <?= $this->renderSection("js") ?>
 </body>
 
 </html>
