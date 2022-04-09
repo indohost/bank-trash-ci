@@ -14,6 +14,7 @@ class UserSeeder extends Seeder
         $user_object->insertBatch([
             [
                 "email" => "qiter@mailinator.com",
+                "code_member" => "SA00001",
                 "username" => "qiter",
                 "password" => password_hash("12341234", PASSWORD_DEFAULT),
                 "telephone" => "082155511121",
@@ -22,6 +23,7 @@ class UserSeeder extends Seeder
             ],
             [
                 "email" => "soro@mailinator.com",
+                "code_member" => "A00001",
                 "username" => "soro",
                 "password" => password_hash("12341234", PASSWORD_DEFAULT),
                 "telephone" => "082155511122",
@@ -30,6 +32,7 @@ class UserSeeder extends Seeder
             ],
             [
                 "email" => "megecile@mailinator.com",
+                "code_member" => "M00001",
                 "username" => "megecile",
                 "password" => password_hash("12341234", PASSWORD_DEFAULT),
                 "telephone" => "082155511123",

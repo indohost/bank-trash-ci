@@ -16,6 +16,7 @@ class UserModel extends Model
     protected $protectFields    = true;
     protected $allowedFields    = [
         "email",
+        "code_member",
         "username",
         "password",
         "telephone",
@@ -65,5 +66,23 @@ class UserModel extends Model
     public function getCountSuperAdmin()
     {
         return $this->where('role', 'super_admin')->countAllResults();
+    }
+
+    public function getCodeMember($role = 'user')
+    {
+        $q = $this->select('MAX(code_member) as `kode`')->first();
+        $kode      = (int) str_replace($q['kode'], 5, 5);
+        $kode++;
+
+        $kd_first = "M";
+        if ($role == 'admin') {
+            $kd_first = "A";
+        } else if ($role == 'super_admin') {
+            $kd_first = "SA";
+        }
+
+        $codeMember = $kd_first . sprintf("%05s", $kode);
+
+        return $codeMember;
     }
 }

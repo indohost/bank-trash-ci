@@ -135,9 +135,9 @@ Transaction - Bank Sampah
             <?= csrf_field(); ?>
             <div class="col-12">
                 <div class="form-group">
-                    <label for="inputData" class="col-sm-4 control-label">Email</label>
+                    <label for="inputData" class="col-sm-4 control-label">Code Member</label>
                     <div class="col-sm-12">
-                        <input type="email" class="form-control" name="email" required="required">
+                        <input type="text" class="form-control" name="code_member" required="required">
                     </div>
                 </div>
                 <div class="form-group">
@@ -151,7 +151,7 @@ Transaction - Bank Sampah
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="image" class="col-sm-4 control-label">Bayar</label>
+                    <label for="image" class="col-sm-4 control-label">Photo</label>
                     <div class="col-sm-12">
                         <input type="file" class="form-control" value="" id="image" name="image" required="required">
                     </div>

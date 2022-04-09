@@ -4,6 +4,7 @@ namespace App\Controllers\SuperAdmin;
 
 use App\Controllers\BaseController;
 use App\Models\UserModel;
+use phpDocumentor\Reflection\Types\This;
 
 class UserController extends BaseController
 {
@@ -33,8 +34,10 @@ class UserController extends BaseController
 
     public function store()
     {
+        $role = $this->request->getPost('role');
         $this->userModel->insert([
             'email' => $this->request->getPost('email'),
+            'code_member' => $this->userModel->getCodeMember($role),
             'username' => $this->request->getPost('username'),
             'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
             'telephone' => $this->request->getPost('telephone'),
@@ -57,7 +60,7 @@ class UserController extends BaseController
             'role' => $this->request->getPost('role'),
         ]);
 
-        return redirect('super_admin/users')->with('success', 'Data Updated Successfully');
+        return redirect('super_admin/users')->with('success', 'Data Update Successfully');
     }
 
     public function delete()

@@ -53,7 +53,7 @@ class TransactionController extends BaseController
     {
         $codeTransaction = $this->transactionModel->getCodeTrasaction();
         $operatorId = session()->get('id');
-        $userId = $this->userModel->where('email', $this->request->getPost('email'))->first()['id'];
+        $userId = $this->userModel->where('code_member', $this->request->getPost('code_member'))->first()['id'];
 
         if (!$this->validate([
             'image' => [
