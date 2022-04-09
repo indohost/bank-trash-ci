@@ -38,10 +38,23 @@ class ConsumerController extends BaseController
                 $incomeTransaction = array_sum($codeTrasaction);
             }
         }
+        
+        $type = [
+            'status' => 'Platinum',
+            'color' => 'text-black-700'
+        ];
+        if ($transactionCount < 5) {
+            $type['status'] = 'Silver';
+            $type['color'] = 'text-gray-300';
+        } else if ($transactionCount >= 5 && $transactionCount < 10) {
+            $type['status'] = 'Gold';
+            $type['color'] = 'text-warning';
+        }
 
         $data = [
             'incomeTransaction' => $incomeTransaction,
             'transactionCount' => $transactionCount,
+            'type' => $type,
         ];
 
         return view("user/dashboard", $data);
