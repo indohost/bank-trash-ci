@@ -54,7 +54,7 @@ class TransactionModel extends Model
     public function getCodeTrasaction()
     {
         $q = $this->select('MAX(code_transaction) as `kode`')->first();
-        $kode      = (int) substr($q['kode'], 5, 5);
+        $kode      = (int) substr($q['kode'] ?? 0, 5, 5);
         $kode++;
 
         $kd_first  = "TR";

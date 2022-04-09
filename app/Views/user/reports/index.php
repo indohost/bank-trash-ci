@@ -79,8 +79,20 @@ if (session()->getFlashData('success')) {
                                         <tr>
                                             <td><?= "Rp." . number_format($e['price'], 0, ',', '.'); ?></td>
                                             <td><?= $e['qty']; ?></td>
-                                            <td><?= $e['type_trash']; ?></td>
-                                            <td><?= $e['total']; ?></td>
+                                            <td>
+                                                <?=
+                                                $typeTrash = '';
+                                                if ($e['type_trash'] == 'organic') {
+                                                    $typeTrash = 'Organic';
+                                                } else if ($e['type_trash'] == 'inorganic') {
+                                                    $typeTrash = 'Inorganic';
+                                                } else {
+                                                    $typeTrash = 'B3';
+                                                }
+                                                echo $typeTrash;
+                                                ?>
+                                            </td>
+                                            <td><?= "Rp." . number_format($e['total'], 0, ',', '.'); ?></td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </table>
