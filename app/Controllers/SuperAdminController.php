@@ -16,7 +16,7 @@ class SuperAdminController extends BaseController
     public function __construct()
     {
         if (session()->get('role') != "super_admin") {
-            echo 'Access denied';
+            echo view('access_denied');
             exit;
         }
 
