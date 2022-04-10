@@ -35,6 +35,10 @@ $routes->get('/',  function () {
     return view('login');
 });
 
+$routes->get('/403',  function () {
+    return view('access_denied');
+});
+
 $routes->match(['get', 'post'], 'login', 'UserController::login', ['filter' => 'noauth']);
 
 // Admin routes

@@ -16,10 +16,9 @@ class ConsumerController extends BaseController
     public function __construct()
     {
         if (session()->get('role') != "user") {
-            echo 'Access denied';
+            echo view('access_denied');
             exit;
         }
-
         $this->userModel = new UserModel();
         $this->transactionModel = new TransactionModel();
         $this->itemTransactionModel = new ItemTransactionModel();

@@ -23,6 +23,18 @@
                                     </div>
                                 </div>
                             <?php endif; ?>
+                            <?php
+                                if (session()->getFlashData('error')) {
+                            ?>
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <?= session()->getFlashData('error') ?>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            <?php
+                                }
+                            ?>
                             <form class="user" action="<?= base_url('login') ?>" method="post">
                                 <div class="form-group">
                                     <input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
