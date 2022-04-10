@@ -85,4 +85,9 @@ class UserModel extends Model
 
         return $codeMember;
     }
+
+    public function getConsumer()
+    {
+        return $this->where('role', 'user')->findAll();
+    }
 }

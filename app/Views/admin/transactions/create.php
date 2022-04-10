@@ -13,7 +13,7 @@ Transaction - Bank Sampah
         Transaksi
     </div>
     <div class="card-body">
-        <form action="<?= base_url('admin/item-transactions/store') ?>" method="post">
+        <form action="<?= base_url('super_admin/item-transactions/store') ?>" method="post">
             <?= csrf_field(); ?>
             <div class="row">
                 <div class="col-4">
@@ -109,7 +109,7 @@ Transaction - Bank Sampah
                             <td>
                                 <div class="row">
                                     <div class="col-3">
-                                        <form action="<?= base_url('/admin/item-transactions/delete/') ?>" method="post">
+                                        <form action="<?= base_url('/super_admin/item-transactions/delete/') ?>" method="post">
                                             <?= csrf_field(); ?>
                                             <input type="hidden" name="id" value="<?= $d['id'] ?>">
                                             <button class="btn btn-danger" onclick="return confirm('Are you sure ?')">
@@ -131,13 +131,18 @@ Transaction - Bank Sampah
         Checkout
     </div>
     <div class="card-body offset-6">
-        <form action="<?= base_url('admin/transactions/store') ?>" method="post" enctype="multipart/form-data">
+        <form action="<?= base_url('super_admin/transactions/store') ?>" method="post" enctype="multipart/form-data">
             <?= csrf_field(); ?>
             <div class="col-12">
                 <div class="form-group">
-                    <label for="inputData" class="col-sm-4 control-label">Email</label>
+                    <label for="inputData" class="col-sm-4 control-label">Code Member</label>
                     <div class="col-sm-12">
-                        <input type="email" class="form-control" name="email" required="required">
+                        <select class="form-control" name="code_member" id="code_member" required>
+                            <option hidden>-- Select Code Member --</option>
+                            <?php foreach ($users as $d) : ?>
+                                <option value="<?= $d['code_member']; ?>"><?= $d['code_member']; ?> - <?= $d['username']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group">
@@ -151,7 +156,7 @@ Transaction - Bank Sampah
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="image" class="col-sm-4 control-label">Bayar</label>
+                    <label for="image" class="col-sm-4 control-label">Photo</label>
                     <div class="col-sm-12">
                         <input type="file" class="form-control" value="" id="image" name="image" required="required">
                     </div>

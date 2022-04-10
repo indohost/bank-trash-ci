@@ -40,10 +40,13 @@ class TransactionController extends BaseController
         $itemTransactions = $this->itemTransactionModel->getItemTransaction(session()->get('id'));
         $codeTransaction = $this->transactionModel->getCodeTrasaction();
 
+        $users = $this->userModel->getConsumer();
+
         $data = [
             'title' => 'Item Transaksi Data',
             'itemTransactions' => $itemTransactions,
             'codeTransaction' => $codeTransaction,
+            'users' => $users,
         ];
 
         return view("admin/transactions/create", $data);

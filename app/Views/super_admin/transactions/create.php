@@ -137,7 +137,12 @@ Transaction - Bank Sampah
                 <div class="form-group">
                     <label for="inputData" class="col-sm-4 control-label">Code Member</label>
                     <div class="col-sm-12">
-                        <input type="text" class="form-control" name="code_member" required="required">
+                        <select class="form-control" name="code_member" id="code_member" required>
+                            <option hidden>-- Select Code Member --</option>
+                            <?php foreach ($users as $d) : ?>
+                                <option value="<?= $d['code_member']; ?>"><?= $d['code_member']; ?> - <?= $d['username']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group">
