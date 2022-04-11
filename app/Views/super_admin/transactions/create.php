@@ -52,7 +52,12 @@ Transaction - Bank Sampah
                     <div class="form-group">
                         <label for="unit" class="col-sm-12 control-label">Garbage Unit</label>
                         <div class="col-sm-12">
-                            <input type="text" class="form-control" value="" id="unit" name="unit" required="required">
+                            <select class="form-control" name="unit" id="unit" required>
+                                <option hidden>-- Select Type --</option>
+                                <option value="ons">ons</option>
+                                <option value="kg">kg</option>
+                                <option value="ton">ton</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
@@ -101,7 +106,17 @@ Transaction - Bank Sampah
                     <?php foreach ($itemTransactions as $d) : ?>
                         <tr>
                             <td><?= $i++; ?></td>
-                            <td><?= $d['type_trash']; ?></td>
+                            <td><?=
+                                                $typeTrash = '';
+                                                if ($d['type_trash'] == 'organic') {
+                                                    $typeTrash = 'Organic';
+                                                } else if ($d['type_trash'] == 'inorganic') {
+                                                    $typeTrash = 'Inorganic';
+                                                } else {
+                                                    $typeTrash = 'B3';
+                                                }
+                                                echo $typeTrash;
+                                                ?></td>
                             <td><?= "Rp." . number_format($d['price'], 0, ',', '.'); ?></td>
                             <td><?= $d['qty']; ?></td>
                             <td><?= $d['unit']; ?></td>
