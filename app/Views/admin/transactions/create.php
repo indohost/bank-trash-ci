@@ -46,18 +46,18 @@ Transaction - Bank Sampah
                     <div class="form-group">
                         <label for="qty" class="col-sm-12 control-label">Garbage Qty</label>
                         <div class="col-sm-12">
-                            <select class="form-control" name="qty" id="qty" required>
-                                <option hidden>-- Select Type --</option>
-                                <option value="ons">Ons</option>
-                                <option value="kg">Kg</option>
-                                <option value="ton">Ton</option>
-                            </select>
+                            <input type="number" class="form-control" value="" id="qty" name="qty" required="required">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="unit" class="col-sm-12 control-label">Garbage Unit</label>
                         <div class="col-sm-12">
-                            <input type="text" class="form-control" value="" id="unit" name="unit" required="required">
+                            <select class="form-control" name="unit" id="unit" required>
+                                <option hidden>-- Select Type --</option>
+                                <option value="ons">Ons</option>
+                                <option value="kg">Kg</option>
+                                <option value="ton">Ton</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
@@ -106,19 +106,17 @@ Transaction - Bank Sampah
                     <?php foreach ($itemTransactions as $d) : ?>
                         <tr>
                             <td><?= $i++; ?></td>
-                            <td>
-                            <?=
+                            <td> <?=
                                                 $typeTrash = '';
-                                                if ($e['type_trash'] == 'organic') {
+                                                if ($d['type_trash'] == 'organic') {
                                                     $typeTrash = 'Organic';
-                                                } else if ($e['type_trash'] == 'inorganic') {
+                                                } else if ($d['type_trash'] == 'inorganic') {
                                                     $typeTrash = 'Inorganic';
                                                 } else {
                                                     $typeTrash = 'B3';
                                                 }
                                                 echo $typeTrash;
-                                                ?>
-                        </td>
+                                                ?></td>
                             <td><?= "Rp." . number_format($d['price'], 0, ',', '.'); ?></td>
                             <td><?= $d['qty']; ?></td>
                             <td><?= $d['unit']; ?></td>
