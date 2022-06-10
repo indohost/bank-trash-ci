@@ -23,9 +23,15 @@ if (session()->getFlashData('success')) {
 ?>
 <!-- Tombol Menambah Data -->
 <div class="card-body">
-    <a href="<?= base_url('super_admin/mahasiswa/create') ?>" class="btn btn-primary mb-4">
-        Create Data
-    </a>
+    <div class="row">
+        <div class="col">
+            <a href="<?= base_url('super_admin/mahasiswa/create') ?>" class="btn btn-primary mb-4">
+                Create Data</a>
+        </div>
+        <div class="col-12 col-sm-auto">
+            <a href="<?= base_url('super_admin/mahasiswa/download-excel') ?>" class="btn btn-success mb-4">Unduh Excel</a>
+        </div>
+    </div>
 
     <!-- DataTable  -->
     <div class="table-responsive">
@@ -35,7 +41,6 @@ if (session()->getFlashData('success')) {
                     <th>No</th>
                     <th>Picture</th>
                     <th>Nama</th>
-                    <th>Alamat</th>
                     <th>Telephone</th>
                     <th>Keahlian</th>
                     <th>email</th>
@@ -47,7 +52,6 @@ if (session()->getFlashData('success')) {
                     <th>No</th>
                     <th>Picture</th>
                     <th>Nama</th>
-                    <th>Alamat</th>
                     <th>Telephone</th>
                     <th>Keahlian</th>
                     <th>email</th>
@@ -61,7 +65,6 @@ if (session()->getFlashData('success')) {
                         <td><?= $i++; ?></td>
                         <td><img src="/uploads/images/<?= ($d['image']); ?>" class="card-img" alt="..."></td>
                         <td><?= $d['nama']; ?></td>
-                        <td><?= $d['alamat']; ?></td>
                         <td><?= $d['telephone']; ?></td>
                         <td><?= $d['pengalaman']; ?></td>
                         <td><?= $d['email']; ?></td>
@@ -69,7 +72,7 @@ if (session()->getFlashData('success')) {
 
                             <div class="row">
                                 <div class="col-3">
-                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#editModal-<?= $d['id'] ?>" title="Lihat">
+                                    <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editModal-<?= $d['id'] ?>" title="Lihat">
                                         Edit
                                     </button>
 
@@ -127,14 +130,12 @@ if (session()->getFlashData('success')) {
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                                         <button type="submit" class="btn btn-primary">Save</button>
                                                     </div>
-
-
                                                 </form>
-
                                             </div>
                                         </div>
                                     </div>
-
+                                </div>
+                                <div class="col-3">
                                     <form action="<?= base_url('/super_admin/mahasiswa/delete/') ?>" method="post">
                                         <?= csrf_field(); ?>
                                         <input type="hidden" name="id" value="<?= $d['id'] ?>">
@@ -142,7 +143,15 @@ if (session()->getFlashData('success')) {
                                             Hapus
                                         </button>
                                     </form>
-
+                                </div>
+                                <div class="col-6">
+                                    <form action="<?= base_url('/super_admin/mahasiswa/download-pdf/') ?>" method="post">
+                                        <?= csrf_field(); ?>
+                                        <input type="hidden" name="id" value="<?= $d['id'] ?>">
+                                        <button class="btn btn-sm btn-danger">
+                                            PDF
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </td>

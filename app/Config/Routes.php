@@ -71,6 +71,9 @@ $routes->group('super_admin', ['filter' => 'auth'], function ($routes) {
         $routes->post('store', 'SuperAdmin/MahasiswaController::store');
         $routes->post('update', 'SuperAdmin/MahasiswaController::update');
         $routes->post('delete', 'SuperAdmin/MahasiswaController::delete');
+
+        $routes->get('download-excel', 'SuperAdmin/MahasiswaController::export_excel');
+        $routes->post('download-pdf', 'SuperAdmin/MahasiswaController::export_pdf');
     });
 
     $routes->group('transactions', function ($routes) {

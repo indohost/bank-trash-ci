@@ -57,4 +57,9 @@ class MahasiswaModel extends Model
             return $this->getWhere(['id' => $id]);
         }
     }
+
+    public function getProfile($id)
+    {
+        return $this->where('id', $id)->first();
+    }
 }
