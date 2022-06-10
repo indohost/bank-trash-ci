@@ -65,6 +65,14 @@ $routes->group('super_admin', ['filter' => 'auth'], function ($routes) {
         $routes->post('delete', 'SuperAdmin/UserController::delete');
     });
 
+    $routes->group('mahasiswa', function ($routes) {
+        $routes->get('/', 'SuperAdmin/MahasiswaController::index');
+        $routes->get('create', 'SuperAdmin/MahasiswaController::create');
+        $routes->post('store', 'SuperAdmin/MahasiswaController::store');
+        $routes->post('update', 'SuperAdmin/MahasiswaController::update');
+        $routes->post('delete', 'SuperAdmin/MahasiswaController::delete');
+    });
+
     $routes->group('transactions', function ($routes) {
         $routes->get('/', 'SuperAdmin/TransactionController::index');
         $routes->get('create', 'SuperAdmin/TransactionController::create');

@@ -40,6 +40,13 @@
         <span>Report</span></a>
 </li>
 
+<!-- Nav Item - mahasiswa -->
+<li class="nav-item">
+    <a class="nav-link" href="/super_admin/mahasiswa">
+        <i class="fa fa-user"></i>
+        <span>Mahasiswa</span></a>
+</li>
+
 <!-- Divider -->
 <hr class="sidebar-divider d-none d-md-block">
 

@@ -7,7 +7,7 @@
         'aliases' => array(
             0 => '4.x-dev',
         ),
-        'reference' => '26139f2a55c6a4bd531f8f2583767677a21772b1',
+        'reference' => '8d3fd9d3a45d38e672cdaa2e14e3a8bce5fcf8b9',
         'name' => 'codeigniter4/codeigniter4',
         'dev' => true,
     ),
@@ -29,7 +29,7 @@
             'aliases' => array(
                 0 => '4.x-dev',
             ),
-            'reference' => '26139f2a55c6a4bd531f8f2583767677a21772b1',
+            'reference' => '8d3fd9d3a45d38e672cdaa2e14e3a8bce5fcf8b9',
             'dev_requirement' => false,
         ),
         'composer/pcre' => array(
