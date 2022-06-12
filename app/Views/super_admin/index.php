@@ -40,6 +40,13 @@
         <span>Report</span></a>
 </li>
 
+<!-- Nav Item - Profiles -->
+<li class="nav-item">
+    <a class="nav-link" href="/super_admin/profiles">
+        <i class="fas fa-fw fa-address-card"></i>
+        <span>Profiles Dev</span></a>
+</li>
+
 <!-- Divider -->
 <hr class="sidebar-divider d-none d-md-block">
 

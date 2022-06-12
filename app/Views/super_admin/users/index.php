@@ -1,7 +1,7 @@
 <?= $this->extend("super_admin/index") ?>
 
 <?= $this->section("title") ?>
-Users - Bank Sampah
+Data - Mahasiswa
 <?= $this->endSection(); ?>
 
 <?= $this->section("content") ?>
@@ -21,124 +21,135 @@ if (session()->getFlashData('success')) {
 <?php
 }
 ?>
+<!-- Tombol Menambah Data -->
+<div class="card-body">
+    <a href="<?= base_url('super_admin/mahasiswa/create') ?>" class="btn btn-primary mb-4">
+        Create Data
+    </a>
 
-<!-- DataTales Example -->
-<div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary"><?php echo $title; ?></h6>
-    </div>
-    <div class="card-body">
-        <a href="<?= base_url('super_admin/users/create') ?>" class="btn btn-primary mb-4">
-            Create Data
-        </a>
-        <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
+    <!-- DataTable  -->
+    <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Picture</th>
+                    <th>Nama</th>
+                    <th>Alamat</th>
+                    <th>Telephone</th>
+                    <th>Keahlian</th>
+                    <th>email</th>
+                    <th>action</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>No</th>
+                    <th>Picture</th>
+                    <th>Nama</th>
+                    <th>Alamat</th>
+                    <th>Telephone</th>
+                    <th>Keahlian</th>
+                    <th>email</th>
+                    <th>action</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                <?php $i = 1; ?>
+                <?php foreach ($mahasiswa as $d) : ?>
                     <tr>
-                        <th>#</th>
-                        <th>Email</th>
-                        <th>Username</th>
-                        <th>Telephone</th>
-                        <th>Address</th>
-                        <th>Role</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tfoot>
-                    <tr>
-                        <th>#</th>
-                        <th>Email</th>
-                        <th>Username</th>
-                        <th>Telephone</th>
-                        <th>Address</th>
-                        <th>Role</th>
-                        <th>Action</th>
-                    </tr>
-                </tfoot>
-                <tbody>
-                    <?php $i = 1; ?>
-                    <?php foreach ($users as $d) : ?>
-                        <tr>
-                            <td><?= $i++; ?></td>
-                            <td><?= $d['email']; ?></td>
-                            <td><?= $d['username']; ?></td>
-                            <td><?= $d['telephone']; ?></td>
-                            <td><?= $d['address']; ?></td>
-                            <td><?= $d['role']; ?></td>
-                            <td>
-                                <div class="row">
-                                    <div class="col-3">
-                                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#editModal-<?= $d['id'] ?>">
-                                            Edit
-                                        </button>
+                        <td><?= $i++; ?></td>
+                        <td><img src="/uploads/images/<?= ($d['image']); ?>" class="card-img" alt="..."></td>
+                        <td><?= $d['nama']; ?></td>
+                        <td><?= $d['alamat']; ?></td>
+                        <td><?= $d['telephone']; ?></td>
+                        <td><?= $d['pengalaman']; ?></td>
+                        <td><?= $d['email']; ?></td>
+                        <td>
 
-                                        <!-- Edit Data -->
-                                        <div class="modal fade" id="editModal-<?= $d['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Edit Data</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <form action="<?= base_url('/super_admin/users/update/') ?>" method="post">
-                                                        <?= csrf_field(); ?>
-                                                        <input type="hidden" name="id" value="<?= $d['id'] ?>">
-                                                        <div class="modal-body">
-                                                            <div class="form-group">
-                                                                <label for="email">Email</label>
-                                                                <input type="email" name="email" class="form-control" id="email" value="<?= $d['email'] ?>" required>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="username">Username</label>
-                                                                <input type="text" name="username" class="form-control" id="username" value="<?= $d['username'] ?>" required>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="telephone">Telephone</label>
-                                                                <input type="text" name="telephone" class="form-control" id="telephone" value="<?= $d['telephone'] ?>" required>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="address">Address</label>
-                                                                <input type="text" name="address" class="form-control" id="address" value="<?= $d['address'] ?>" required>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="role">Role</label>
-                                                                <select class="form-control" name="role" id="role" required="required">
-                                                                    <option hidden value="<?= $d['role'] ?>">-- Pilih Level --</option>
-                                                                    <option value="super_admin">Super Admin</option>
-                                                                    <option value="admin">Admin</option>
-                                                                    <option value="user">User</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                            <button type="submit" class="btn btn-primary">Save</button>
-                                                        </div>
-                                                    </form>
+                            <div class="row">
+                                <div class="col-3">
+                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#editModal-<?= $d['id'] ?>" title="Lihat">
+                                        Edit
+                                    </button>
+
+                                    <!-- Edit Data -->
+                                    <div class="modal fade" id="editModal-<?= $d['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Edit Data</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
                                                 </div>
+
+                                                <form action="<?= base_url('/super_admin/mahasiswa/update/') ?>" method="post" enctype="multipart/form-data">
+                                                    <?= csrf_field(); ?>
+                                                    <input type="hidden" name="id" value="<?= $d['id'] ?>">
+                                                    <div class="modal-body">
+                                                        <div class="form-group">
+                                                            <label for="nama">Nama</label>
+                                                            <input type="text" name="nama" class="form-control" id="nama" value="<?= $d['nama'] ?>" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="alamat">Alamat</label>
+                                                            <input type="text" name="alamat" class="form-control" id="alamat" value="<?= $d['alamat'] ?>" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="pendidikan">Pendidikan</label>
+                                                            <input type="text" name="pendidikan" class="form-control" id="pendidikan" value="<?= $d['pendidikan'] ?>" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="keahlian">Keahlian</label>
+                                                            <input type="text" name="keahlian" class="form-control" id="keahlian" value="<?= $d['keahlian'] ?>" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="telephone">Telephone</label>
+                                                            <input type="text" name="telephone" class="form-control" id="telephone" value="<?= $d['telephone'] ?>" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="pengalaman">Pengalaman</label>
+                                                            <input type="text" name="pengalaman" class="form-control" id="pengalaman" value="<?= $d['pengalaman'] ?>" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="image">Image</label>
+                                                            <input type="file" name="image" class="form-control" id="image" value="<?= $d['image'] ?>" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="email">Email</label>
+                                                            <input type="text" name="email" class="form-control" id="email" value="<?= $d['email'] ?>" required>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-primary">Save</button>
+                                                    </div>
+
+
+                                                </form>
+
                                             </div>
                                         </div>
-                                        <!-- End Edit Data -->
                                     </div>
-                                    <div class="col-3">
-                                        <form action="<?= base_url('/super_admin/users/delete/') ?>" method="post">
-                                            <?= csrf_field(); ?>
-                                            <input type="hidden" name="id" value="<?= $d['id'] ?>">
-                                            <button class="btn btn-danger" onclick="return confirm('Are you sure ?')">
-                                                Delete
-                                            </button>
-                                        </form>
-                                    </div>
+
+                                    <form action="<?= base_url('/super_admin/mahasiswa/delete/') ?>" method="post">
+                                        <?= csrf_field(); ?>
+                                        <input type="hidden" name="id" value="<?= $d['id'] ?>">
+                                        <button class="btn btn-sm btn-outline-secondary" onclick="return confirm('Are you sure ?')">
+                                            Hapus
+                                        </button>
+                                    </form>
+
                                 </div>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>
+                            </div>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
     </div>
 </div>
-
 <?= $this->endSection(); ?>

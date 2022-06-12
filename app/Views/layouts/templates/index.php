@@ -142,6 +142,8 @@
 
     <!-- Apexchart scripts -->
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    <script type="text/javascript" src="<?= base_url('assets/vendor/ckeditor/ckeditor.js') ?>"></script>
     <?= $this->renderSection("js") ?>
 </body>
 

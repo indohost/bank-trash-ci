@@ -61,6 +61,18 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
 $routes->group('super_admin', ['filter' => 'auth'], function ($routes) {
     $routes->get('/', 'SuperAdminController::index');
 
+
+    $routes->group('profiles', function ($routes) {
+        $routes->get('/', 'Profile/ProfileController::index');
+        $routes->get('create', 'Profile/ProfileController::create');
+        $routes->post('store', 'Profile/ProfileController::store');
+        $routes->post('update', 'Profile/ProfileController::update');
+        $routes->post('delete', 'Profile/ProfileController::delete');
+
+        $routes->get('download-excel', 'Profile/ExportExcelProfileController::index');
+        $routes->post('download-pdf', 'Profile/ExportPDFProfileController::index');
+    });
+
     $routes->group('users', function ($routes) {
         $routes->get('/', 'SuperAdmin/UserController::index');
         $routes->get('create', 'SuperAdmin/UserController::create');
